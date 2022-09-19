@@ -41,9 +41,12 @@ public class ProductControllerTest {
     }
 
     @Test
-    void testGetProductById() {
+    void testGetProductByIdSuccess() {
         Integer productId = 1;
+        Product product = new Product(1, 15, 40.00, "Special coat", "coat.png", "Special Coat v2");
+        Mockito.when(productService.findById(productId)).thenReturn(Optional.of(product));
 
+        Assertions.assertEquals(ResponseEntity.ok(product), productController.getProductById(productId));
 
     }
 
@@ -54,6 +57,11 @@ public class ProductControllerTest {
 
     @Test
     void testUpsert() {
+        Product product = new Product(1, 15, 40.00, "Special coat", "coat.png", "Special Coat v2");
+        Mockito.when(productService.save(product)).thenReturn(product);
 
+        Assertions.assertEquals(ResponseEntity.ok(product), productController.upsert(product));
+
+        Mockito.verify(productService, Mockito.times(1)).save(product);
     }
 }
