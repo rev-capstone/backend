@@ -1,5 +1,7 @@
 package com.revature.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
@@ -32,7 +34,10 @@ public class ProductControllerTest {
 
     @Test
     void testGetInventory() {
+        List<Product> product_list_response = new ArrayList<Product>();
+        Mockito.when(productService.findAll()).thenReturn(product_list_response);
 
+        Assertions.assertEquals(ResponseEntity.ok(product_list_response), productController.getInventory());
     }
 
     @Test
