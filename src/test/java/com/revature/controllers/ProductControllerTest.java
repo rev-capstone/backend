@@ -4,8 +4,10 @@ import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.springframework.http.ResponseEntity;
 
 import com.revature.models.Product;
 import com.revature.services.ProductService;
@@ -14,6 +16,7 @@ public class ProductControllerTest {
 
     HttpSession session = Mockito.mock(HttpSession.class);
     ProductService productService = Mockito.mock(ProductService.class);
+    ProductController productController = new ProductController(productService);
 
     @Test
     void testDeleteProduct() {
@@ -22,10 +25,9 @@ public class ProductControllerTest {
 
         Mockito.when(productService.findById(productId)).thenReturn(Optional.of(product));
 
-        productService.delete(productId);
+        Assertions.assertEquals(ResponseEntity.ok(product), productController.deleteProduct(productId));
 
         Mockito.verify(productService, Mockito.times(1)).delete(productId);
-        
     }
 
     @Test
@@ -37,7 +39,7 @@ public class ProductControllerTest {
     void testGetProductById() {
         Integer productId = 1;
 
-        
+
     }
 
     @Test

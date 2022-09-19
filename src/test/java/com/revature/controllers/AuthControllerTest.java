@@ -30,7 +30,7 @@ public class AuthControllerTest {
         
         Mockito.when(authService.findByCredentials(anyString(), anyString())).thenReturn(Optional.of(user));
 
-        Assertions.assertEquals(authController.login(loginRequest, session), ResponseEntity.ok(user));
+        Assertions.assertEquals(ResponseEntity.ok(user), authController.login(loginRequest, session));
 
         Mockito.verify(session, Mockito.times(1)).setAttribute("user", user);
     }
