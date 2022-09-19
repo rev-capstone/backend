@@ -9,9 +9,11 @@ import javax.servlet.http.HttpSession;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.revature.dtos.LoginRequest;
+import com.revature.dtos.RegisterRequest;
 import com.revature.models.User;
 import com.revature.services.AuthService;
 
@@ -45,11 +47,18 @@ public class AuthControllerTest {
 
     @Test
     void testLogout() {
+        Assertions.assertEquals(authController.logout(session), ResponseEntity.ok().build());
 
+        Mockito.verify(session, Mockito.times(1)).removeAttribute("user");
     }
 
     @Test
-    void testRegister() {
+    void testRegisterSuccessful() {
+       
+        RegisterRequest registerRequest = new RegisterRequest("r123@gmail.com", "p123", "Rob", "Banks");
+        User user = new User(0, registerRequest.getEmail(), registerRequest.getPassword(), registerRequest.getFirstName(), registerRequest.getLastName());
 
+        Assertions.assertEquals(authController.register(registerRequest), ResponseEntity.status(HttpStatus.CREATED).body(authService.register(user)));
+        
     }
 }
