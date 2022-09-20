@@ -44,12 +44,21 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<User> register(@RequestBody RegisterRequest registerRequest) {
+
         User created = new User(0,
                 registerRequest.getEmail(),
                 registerRequest.getPassword(),
                 registerRequest.getFirstName(),
                 registerRequest.getLastName());
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(authService.register(created));
+        User userfromDb = authService.register(created);   
+
+        if(userfromDb == null){
+
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+
+        }
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(userfromDb);
     }
 }
