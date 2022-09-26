@@ -9,26 +9,26 @@ INSERT INTO product (id, quantity, price, description, image, name) VALUES (
 (
     2,
     35,
-    35.00,
-    'If you are going to code all night, you might as well do it in comfort while maintaining that prerequisite sense of humor!',
-    'https://s3bucketrt34.s3.amazonaws.com/coder_jammies-rev.png',
-    'Pajamas'
-),
-(
-    3,
-    12,
-    175.00,
-    'work on your coding in comfort and efficiency with this beautiful keyboard.  It has a padded wrist rest and can be programmed with macros to supercharge your coding experience!',
-    'https://s3bucketrt34.s3.amazonaws.com/keyboard-rev.png',
-    'Razer Keyboard'
-),
-(
-    4,
-    35,
     80.00,
     'Classic 100% organic cotton HTML5 branded navy blue sweatshirt',
     'https://s3bucketrt34.s3.amazonaws.com/revsweatshirt2.png',
     'HTML5 Sweatshirt'
+),
+(
+    3,
+    35,
+    80.00,
+    'Classic 100% organic cotton React branded sweatshirt',
+    'https://s3bucketrt34.s3.amazonaws.com/revsweatshirt3.png',
+    'React Sweatshirt'
+),
+(
+    4,
+    35,
+    35.00,
+    'If you are going to code all night, you might as well do it in comfort while maintaining that prerequisite sense of humor!',
+    'https://s3bucketrt34.s3.amazonaws.com/coder_jammies-rev.png',
+    'Pajamas'
 ),
 (
     5,
@@ -40,27 +40,27 @@ INSERT INTO product (id, quantity, price, description, image, name) VALUES (
 ),
 (
     6,
-    35,
-    80.00,
-    'Classic 100% organic cotton React branded sweatshirt',
-    'https://s3bucketrt34.s3.amazonaws.com/revsweatshirt3.png',
-    'React Sweatshirt'
-),
-(
-    7,
     40,
     30.00,
     'Programming at the local cafe?  Have a cup of java while showing off your love for Java with this cool T',
     'https://s3bucketrt34.s3.amazonaws.com/spring_tshirt-rev.png',
     'Spring Boot T-Shirt'
-), 
+),
 (
-    8,
+    7,
     25,
     20.00,
     'Code for days knowing your wrist tunnels are protected with these supportive gloves.',
     'https://s3bucketrt34.s3.amazonaws.com/carpalglove-rev.png',
     'Carpal Gloves'
+), 
+(
+    8,
+    100,
+    87.00,
+    'Keep those coding fingers warm and ready Revanauts!',
+    'https://s3bucketrt34.s3.amazonaws.com/handwarmer.png',
+    'Revature Handwarmer'
 ),
 (
     9,
@@ -72,19 +72,19 @@ INSERT INTO product (id, quantity, price, description, image, name) VALUES (
 ),
 (
     10,
-    30,
-    150.00,
-    'These are great for when you refuse to listen to people talking about React',
-    'https://s3bucketrt34.s3.amazonaws.com/71o8Q5XJS5L._AC_SL1500_.png',
-    'Angular Headphones'
+    15,
+    250.00,
+    'If you love LEDs, this is the keyboard for you',
+    'https://s3bucketrt34.s3.amazonaws.com/RGB_Keyboard.png',
+    'LED Rounded-key Keyboard'
 ),
 (
     11,
-    50,
-    95.00,
-    'Headphones branded by one of the most iconic games of all time',
-    'https://s3bucketrt34.s3.amazonaws.com/71woCid-GQL._AC_SX679_.png',
-    'Doom Headphones'
+    12,
+    175.00,
+    'work on your coding in comfort and efficiency with this beautiful keyboard.  It has a padded wrist rest and can be programmed with macros to supercharge your coding experience!',
+    'https://s3bucketrt34.s3.amazonaws.com/keyboard-rev.png',
+    'Razer Keyboard'
 ),
 (
     12,
@@ -96,22 +96,6 @@ INSERT INTO product (id, quantity, price, description, image, name) VALUES (
 ),
 (
     13,
-    100,
-    87.00,
-    'Keep those coding fingers warm and ready Revanauts!',
-    'https://s3bucketrt34.s3.amazonaws.com/handwarmer.png',
-    'Revature Handwarmer'
-),
-(
-    14,
-    50,
-    350.00,
-    'You cannot go wrong with a solid RAM upgrade',
-    'https://s3bucketrt34.s3.amazonaws.com/Ram_RipJaws.png',
-    'RipJaws DDR4 RAM Modules'
-),
-(
-    15,
     40,
     170.00,
     'Classic styled mouse with LED lighting and extra side buttons by Razor',
@@ -119,20 +103,36 @@ INSERT INTO product (id, quantity, price, description, image, name) VALUES (
     'Razor Mouse'
 ),
 (
-    16,
-    15,
-    250.00,
-    'If you love LEDs, this is the keyboard for you',
-    'https://s3bucketrt34.s3.amazonaws.com/RGB_Keyboard.png',
-    'LED Rounded-key Keyboard'
-),
-(
-    17,
+    14,
     6,
     450.00,
     'The T is for terrific!',
     'https://s3bucketrt34.s3.amazonaws.com/T_Mouse.png',
     'T Mouse'
+),
+(
+    15,
+    50,
+    95.00,
+    'Headphones branded by one of the most iconic games of all time',
+    'https://s3bucketrt34.s3.amazonaws.com/71woCid-GQL._AC_SX679_.png',
+    'Doom Headphones'
+),
+(
+    16,
+    30,
+    150.00,
+    'These are great for when you refuse to listen to people talking about React',
+    'https://s3bucketrt34.s3.amazonaws.com/71o8Q5XJS5L._AC_SL1500_.png',
+    'Angular Headphones'
+),
+(
+    17,
+    50,
+    350.00,
+    'You cannot go wrong with a solid RAM upgrade',
+    'https://s3bucketrt34.s3.amazonaws.com/Ram_RipJaws.png',
+    'RipJaws DDR4 RAM Modules'
 ),
 (
     18,
