@@ -29,7 +29,7 @@ public class ProductControllerTest {
     Product p3 = new Product(3, 4, 370.00, "Iron T-Shirt", "tshirt.png", "Iron plate T-Shirt");
 
     @Test
-    void testDeleteProduct() {
+    void testDeleteProductSuccess() {
         Integer productId = 1;
         Product product = p1;
 
@@ -38,6 +38,15 @@ public class ProductControllerTest {
         Assertions.assertEquals(ResponseEntity.ok(product), productController.deleteProduct(productId));
 
         Mockito.verify(productService, Mockito.times(1)).delete(productId);
+    }
+
+    @Test
+    void testDeleteProductFail() {
+        Integer productId = 1;
+
+        Mockito.when(productService.findById(productId)).thenReturn(Optional.empty());
+
+        Assertions.assertEquals(ResponseEntity.notFound().build(), productController.deleteProduct(productId));
     }
 
     @Test
