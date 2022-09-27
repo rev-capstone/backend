@@ -48,19 +48,19 @@ INSERT INTO product (id, quantity, price, description, image, name) VALUES (
 ),
 (
     7,
-    25,
-    20.00,
-    'Code for days knowing your wrist tunnels are protected with these supportive gloves.',
-    'https://s3bucketrt34.s3.amazonaws.com/carpalglove-rev.png',
-    'Carpal Gloves'
+    15,
+    250.00,
+    'If you love LEDs, this is the keyboard for you',
+    'https://s3bucketrt34.s3.amazonaws.com/RGB_Keyboard.png',
+    'LED Rounded-key Keyboard'
 ), 
 (
     8,
-    100,
-    87.00,
-    'Keep those coding fingers warm and ready Revanauts!',
-    'https://s3bucketrt34.s3.amazonaws.com/handwarmer.png',
-    'Revature Handwarmer'
+    12,
+    175.00,
+    'work on your coding in comfort and efficiency with this beautiful keyboard.  It has a padded wrist rest and can be programmed with macros to supercharge your coding experience!',
+    'https://s3bucketrt34.s3.amazonaws.com/keyboard-rev.png',
+    'Razer Keyboard'
 ),
 (
     9,
@@ -72,19 +72,19 @@ INSERT INTO product (id, quantity, price, description, image, name) VALUES (
 ),
 (
     10,
-    15,
-    250.00,
-    'If you love LEDs, this is the keyboard for you',
-    'https://s3bucketrt34.s3.amazonaws.com/RGB_Keyboard.png',
-    'LED Rounded-key Keyboard'
+    40,
+    170.00,
+    'Classic styled mouse with LED lighting and extra side buttons by Razor',
+    'https://s3bucketrt34.s3.amazonaws.com/RazorMouse.png',
+    'Razor Mouse'
 ),
 (
     11,
-    12,
-    175.00,
-    'work on your coding in comfort and efficiency with this beautiful keyboard.  It has a padded wrist rest and can be programmed with macros to supercharge your coding experience!',
-    'https://s3bucketrt34.s3.amazonaws.com/keyboard-rev.png',
-    'Razer Keyboard'
+    6,
+    450.00,
+    'The T is for terrific!',
+    'https://s3bucketrt34.s3.amazonaws.com/T_Mouse.png',
+    'T Mouse'
 ),
 (
     12,
@@ -96,19 +96,19 @@ INSERT INTO product (id, quantity, price, description, image, name) VALUES (
 ),
 (
     13,
-    40,
-    170.00,
-    'Classic styled mouse with LED lighting and extra side buttons by Razor',
-    'https://s3bucketrt34.s3.amazonaws.com/RazorMouse.png',
-    'Razor Mouse'
+    30,
+    150.00,
+    'These are great for when you refuse to listen to people talking about React',
+    'https://s3bucketrt34.s3.amazonaws.com/71o8Q5XJS5L._AC_SL1500_.png',
+    'Angular Headphones'
 ),
 (
     14,
-    6,
-    450.00,
-    'The T is for terrific!',
-    'https://s3bucketrt34.s3.amazonaws.com/T_Mouse.png',
-    'T Mouse'
+    38,
+    260.00,
+    'Handsome C++ headphones',
+    'https://s3bucketrt34.s3.amazonaws.com/chlarger.png',
+    'C++ Headphones'
 ),
 (
     15,
@@ -120,19 +120,19 @@ INSERT INTO product (id, quantity, price, description, image, name) VALUES (
 ),
 (
     16,
-    30,
-    150.00,
-    'These are great for when you refuse to listen to people talking about React',
-    'https://s3bucketrt34.s3.amazonaws.com/71o8Q5XJS5L._AC_SL1500_.png',
-    'Angular Headphones'
-),
-(
-    17,
     50,
     350.00,
     'You cannot go wrong with a solid RAM upgrade',
     'https://s3bucketrt34.s3.amazonaws.com/Ram_RipJaws.png',
     'RipJaws DDR4 RAM Modules'
+),
+(
+    17,
+    100,
+    87.00,
+    'Keep those coding fingers warm and ready Revanauts!',
+    'https://s3bucketrt34.s3.amazonaws.com/handwarmer.png',
+    'Revature Handwarmer'
 ),
 (
     18,
