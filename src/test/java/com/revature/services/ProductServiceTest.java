@@ -1,4 +1,7 @@
 package com.revature.services;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.verify;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -53,5 +56,13 @@ public class ProductServiceTest {
     void testSaveAll(){
         Mockito.when(productRepository.saveAll(list)).thenReturn(list);
         Assertions.assertEquals(list, productService.saveAll(list, infolist));
+    }
+
+    @Test
+    void testDelete(){
+        Integer productId = 1;
+        doNothing().when(productRepository).deleteById(productId);
+        productService.delete(productId);
+        verify(productRepository, Mockito.times(1)).deleteById(productId);
     }
 }

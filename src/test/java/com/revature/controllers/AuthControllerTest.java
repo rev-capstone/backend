@@ -53,7 +53,6 @@ public class AuthControllerTest {
 
     @Test
     void testRegisterSuccessful() {
-       
         RegisterRequest registerRequest = new RegisterRequest("r123@gmail.com", "p123", "Rob", "Banks");
 
         User user = new User(0, registerRequest.getEmail(), registerRequest.getPassword(), registerRequest.getFirstName(), registerRequest.getLastName());
@@ -61,6 +60,16 @@ public class AuthControllerTest {
         Mockito.when(authService.register(new User(0, registerRequest.getEmail(), registerRequest.getPassword(), registerRequest.getFirstName(), registerRequest.getLastName()))).thenReturn(user);
 
         Assertions.assertEquals(authController.register(registerRequest), ResponseEntity.status(HttpStatus.CREATED).body(authService.register(user)));
-        
+    }
+
+    @Test
+    void testRegisterFail() {
+        RegisterRequest registerRequest = new RegisterRequest("r123@gmail.com", "z123", "Rob", "Banks");
+
+        User user = new User(0, registerRequest.getEmail(), registerRequest.getPassword(), registerRequest.getFirstName(), registerRequest.getLastName());
+
+        Mockito.when(authService.register(new User(0, registerRequest.getEmail(), registerRequest.getPassword(), registerRequest.getFirstName(), registerRequest.getLastName()))).thenReturn(null);
+
+        Assertions.assertEquals(authController.register(registerRequest),  ResponseEntity.status(HttpStatus.CONFLICT).build());
     }
 }
