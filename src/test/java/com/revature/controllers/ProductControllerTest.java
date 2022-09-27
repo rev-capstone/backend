@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 //import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.http.ResponseEntity;
 
@@ -22,9 +21,12 @@ public class ProductControllerTest {
     HttpSession session = Mockito.mock(HttpSession.class);
     ProductService productService = Mockito.mock(ProductService.class);
     ProductController productController = new ProductController(productService);
-    Iterator<Product> productIterator = Mockito.mock(Iterator.class);
-    ArrayList<Product> productList = Mockito.mock(ArrayList.class);
-    Product p1 = new Product(1, 15, 40.00, "Special coat", "coat.png", "Special Coat v2"), p2 = new Product(2, 45, 13.00, "Magic Socks", "socks.png", "Magic Socks"), p3 = new Product(3, 4, 370.00, "Iron T-Shirt", "tshirt.png", "Iron plate T-Shirt");
+    //Iterator<Product> productIterator = Mockito.mock(Iterator.class);
+    //ArrayList<Product> productList = Mockito.mock(ArrayList.class);
+
+    Product p1 = new Product(1, 15, 40.00, "Special coat", "coat.png", "Special Coat v2");
+    Product p2 = new Product(2, 45, 13.00, "Magic Socks", "socks.png", "Magic Socks");
+    Product p3 = new Product(3, 4, 370.00, "Iron T-Shirt", "tshirt.png", "Iron plate T-Shirt");
 
     @Test
     void testDeleteProduct() {
@@ -53,9 +55,14 @@ public class ProductControllerTest {
         Mockito.when(productService.findById(productId)).thenReturn(Optional.of(product));
 
         Assertions.assertEquals(ResponseEntity.ok(product), productController.getProductById(productId));
-
     }
 
+    @Test
+    void testGetProductByIdFail(){
+        Integer productId = 1;
+        Mockito.when(productService.findById(productId)).thenReturn(Optional.empty());
+        Assertions.assertEquals(ResponseEntity.notFound().build(), productController.getProductById(productId));
+    }
 
 
     @Test

@@ -37,7 +37,6 @@ public class AuthControllerTest {
 
     @Test
     void testLoginUnsuccessful(){
-        User user = new User(1, "r123@gmail.com", "p123", "Rob", "Banks");
         LoginRequest loginRequest = new LoginRequest("r123@gmail.com", "p123");
 
         Mockito.when(authService.findByCredentials(anyString(), anyString())).thenReturn(Optional.empty());

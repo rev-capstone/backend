@@ -29,4 +29,6 @@ public class AuthServiceTest {
 
         Assertions.assertEquals(Optional.empty(), authService.findByCredentials(loginRequest.getEmail(), loginRequest.getPassword()));
     }
+
+    
 }
