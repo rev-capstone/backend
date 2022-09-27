@@ -48,7 +48,7 @@ public class ProductController {
     @Authorized
     @PatchMapping
     public ResponseEntity<List<Product>> purchase(@RequestBody List<ProductInfo> metadata) { 	
-    	List<Product> productList = new ArrayList<Product>();
+    	List<Product> productList = new ArrayList<>();
     	
     	for (int i = 0; i < metadata.size(); i++) {
     		Optional<Product> optional = productService.findById(metadata.get(i).getId());

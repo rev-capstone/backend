@@ -29,4 +29,21 @@ public class AuthServiceTest {
 
         Assertions.assertEquals(Optional.empty(), authService.findByCredentials(loginRequest.getEmail(), loginRequest.getPassword()));
     }
+
+    @Test
+    void testRegisterExistingUser(){
+
+        User userExists = new User(5,"existingUser@mail.com","password","Yo","yo");
+        Mockito.when(userService.getUserByEmail(userExists.getEmail())).thenReturn(Optional.of(userExists));
+        Assertions.assertEquals(null, authService.register(userExists));
+
+    }
+
+    @Test
+    void testRegisterNewUser(){
+        
+    }
+
+
+
 }

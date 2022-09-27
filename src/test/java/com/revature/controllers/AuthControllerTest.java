@@ -37,7 +37,6 @@ public class AuthControllerTest {
 
     @Test
     void testLoginUnsuccessful(){
-        User user = new User(1, "r123@gmail.com", "p123", "Rob", "Banks");
         LoginRequest loginRequest = new LoginRequest("r123@gmail.com", "p123");
 
         Mockito.when(authService.findByCredentials(anyString(), anyString())).thenReturn(Optional.empty());
@@ -54,7 +53,6 @@ public class AuthControllerTest {
 
     @Test
     void testRegisterSuccessful() {
-       
         RegisterRequest registerRequest = new RegisterRequest("r123@gmail.com", "p123", "Rob", "Banks");
 
         User user = new User(0, registerRequest.getEmail(), registerRequest.getPassword(), registerRequest.getFirstName(), registerRequest.getLastName());
@@ -62,6 +60,16 @@ public class AuthControllerTest {
         Mockito.when(authService.register(new User(0, registerRequest.getEmail(), registerRequest.getPassword(), registerRequest.getFirstName(), registerRequest.getLastName()))).thenReturn(user);
 
         Assertions.assertEquals(authController.register(registerRequest), ResponseEntity.status(HttpStatus.CREATED).body(authService.register(user)));
-        
+    }
+
+    @Test
+    void testRegisterFail() {
+        RegisterRequest registerRequest = new RegisterRequest("r123@gmail.com", "z123", "Rob", "Banks");
+
+        User user = new User(0, registerRequest.getEmail(), registerRequest.getPassword(), registerRequest.getFirstName(), registerRequest.getLastName());
+
+        Mockito.when(authService.register(new User(0, registerRequest.getEmail(), registerRequest.getPassword(), registerRequest.getFirstName(), registerRequest.getLastName()))).thenReturn(null);
+
+        Assertions.assertEquals(authController.register(registerRequest),  ResponseEntity.status(HttpStatus.CONFLICT).build());
     }
 }

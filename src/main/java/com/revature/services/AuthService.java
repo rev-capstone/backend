@@ -22,12 +22,8 @@ public class AuthService {
     public User register(User user) {
         Optional<User> useropt = userService.getUserByEmail(user.getEmail());
         if(useropt.isPresent()){
-            
             return null;
-            
-
         }
-
         return userService.save(user);
     }
 
