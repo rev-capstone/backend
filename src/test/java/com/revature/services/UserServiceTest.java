@@ -20,7 +20,7 @@ public class UserServiceTest {
     void testFindByCredentialsSuccessful() {
         User user = new User(1, "r123@gmail.com", "p123", "Rob", "Banks");
         LoginRequest loginRequest = new LoginRequest("r123@gmail.com", "p123");
-        Mockito.when(userService.findByCredentials(loginRequest.getEmail(), loginRequest.getPassword())).thenReturn(Optional.of(user));
+        Mockito.when(userRepository.findByEmailAndPassword(loginRequest.getEmail(), loginRequest.getPassword())).thenReturn(Optional.of(user));
 
         Assertions.assertEquals(Optional.of(user), userService.findByCredentials(loginRequest.getEmail(), loginRequest.getPassword()));
     }
@@ -29,13 +29,13 @@ public class UserServiceTest {
     void testFindByCredentialsUnsuccessful() {
         
         LoginRequest loginRequest = new LoginRequest("r123@gmail.com", "p123");
-        Mockito.when(userService.findByCredentials(loginRequest.getEmail(), loginRequest.getPassword())).thenReturn(Optional.empty());
+        Mockito.when(userRepository.findByEmailAndPassword(loginRequest.getEmail(), loginRequest.getPassword())).thenReturn(Optional.empty());
 
         Assertions.assertEquals(Optional.empty(), userService.findByCredentials(loginRequest.getEmail(), loginRequest.getPassword()));
     }
 
     @Test
-    void testSaveUserSuccessful() {
+    void testSaveUser() {
         //arrange
         User expected = new User(1, "j@gmail.com", "password", "firstName", "lastName");
         Mockito.when(userRepository.save(expected)).thenReturn(expected);

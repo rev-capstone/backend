@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.mockito.stubbing.OngoingStubbing;
 import org.springframework.http.ResponseEntity;
 
 import com.revature.dtos.ProductInfo;
@@ -113,5 +114,59 @@ public class ProductControllerTest {
         assertEquals(ResponseEntity.ok(product), productController.upsert(product));
 
         Mockito.verify(productService, Mockito.times(1)).save(product);
+    }
+
+    @Test
+    void testPurchaseWithProductNotFound() {
+        //arrange
+        Integer id = 0;
+        Integer quantity = 5;
+        List<ProductInfo> metadata = new ArrayList<>();
+        metadata.add(new ProductInfo(id, quantity));
+        ResponseEntity<List<Product>> expected = ResponseEntity.notFound().build();
+        Mockito.when(productService.findById(metadata.get(0).getId())).thenReturn(Optional.empty());
+
+        //act
+        ResponseEntity<List<Product>> actual = productController.purchase(metadata);
+
+        //assert
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void testPurchaseWithPurchaseQuantityTooHigh() {
+        //arrange
+        Integer id = 0;
+        Integer quantity = 5;
+        List<ProductInfo> metadata = new ArrayList<>();
+        metadata.add(new ProductInfo(id, quantity));
+        ResponseEntity<List<Product>> expected = ResponseEntity.badRequest().build();
+        Mockito.when(productService.findById(metadata.get(0).getId())).thenReturn(Optional.of(new Product(0, 4, 0, "description", "image", "name")));
+
+        //act
+        ResponseEntity<List<Product>> actual = productController.purchase(metadata);
+
+        //assert
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void testValidPurchaseOfValidItem() {
+        //arrange
+        Integer id = 0;
+        Integer quantity = 5;
+        List<ProductInfo> metadata = new ArrayList<>();
+        List<Product> products = new ArrayList<>();
+        metadata.add(new ProductInfo(id, quantity));
+        Mockito.when(productService.findById(metadata.get(0).getId())).thenReturn(Optional.of(new Product(0, 8, 0, "description", "image", "name")));
+        products.add(new Product(0, 3, 0, "description", "image", "name"));
+        Mockito.when(productService.saveAll(products, metadata)).thenReturn(products);
+        ResponseEntity<List<Product>> expected = ResponseEntity.ok(products);
+
+        //act
+        ResponseEntity<List<Product>> actual = productController.purchase(metadata);
+
+        //assert
+        Assertions.assertEquals(expected, actual);
     }
 }
