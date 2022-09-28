@@ -47,4 +47,11 @@ public class UserServiceTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void testGetUserByEmailSuccess(){
+        String email = "j@gmail.com";
+        User user = new User(1, "j@gmail.com", "password", "firstName", "lastName");
+        Mockito.when(userRepository.findByEmail(email)).thenReturn(Optional.of(user));
+        Assertions.assertEquals(Optional.of(user), userService.getUserByEmail(email));
+    }
 }

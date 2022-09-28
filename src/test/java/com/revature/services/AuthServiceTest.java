@@ -32,16 +32,20 @@ public class AuthServiceTest {
 
     @Test
     void testRegisterExistingUser(){
-
         User userExists = new User(5,"existingUser@mail.com","password","Yo","yo");
-        Mockito.when(userService.getUserByEmail(userExists.getEmail())).thenReturn(Optional.of(userExists));
-        Assertions.assertEquals(null, authService.register(userExists));
 
+        Mockito.when(userService.getUserByEmail(userExists.getEmail())).thenReturn(Optional.of(userExists));
+
+        Assertions.assertEquals(null, authService.register(userExists));
     }
 
     @Test
     void testRegisterNewUser(){
+        User userNotExists = new User(5,"existingUser@mail.com","password","Yo","yo");
+        Mockito.when(userService.getUserByEmail(userNotExists.getEmail())).thenReturn(Optional.empty());
+        User actual = userService.save(userNotExists);
         
+        Assertions.assertEquals(actual, authService.register(userNotExists));
     }
 
 
