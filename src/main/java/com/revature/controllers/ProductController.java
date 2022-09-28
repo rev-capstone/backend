@@ -1,6 +1,8 @@
 package com.revature.controllers;
 
 import com.revature.annotations.Authorized;
+import com.revature.dtos.DtoMapper;
+import com.revature.dtos.ProductDto;
 import com.revature.dtos.ProductInfo;
 import com.revature.models.Product;
 import com.revature.services.ProductService;
@@ -16,6 +18,7 @@ import java.util.Optional;
 @CrossOrigin(origins = {"http://localhost:4200", "http://localhost:3000"}, allowCredentials = "true")
 public class ProductController {
 
+    private DtoMapper dtoConv = new DtoMapper();
     private final ProductService productService;
 
     public ProductController(ProductService productService) {
@@ -41,7 +44,8 @@ public class ProductController {
 
     @Authorized
     @PutMapping
-    public ResponseEntity<Product> upsert(@RequestBody Product product) {
+    public ResponseEntity<Product> upsert(@RequestBody ProductDto pdto) {
+        Product product = dtoConv.convertDtoToProduct(pdto);
         return ResponseEntity.ok(productService.save(product));
     }
 
