@@ -45,6 +45,7 @@ public class ProductController {
         return ResponseEntity.ok(productService.save(product));
     }
 
+
     @Authorized
     @PatchMapping
     public ResponseEntity<List<Product>> purchase(@RequestBody List<ProductInfo> metadata) { 	
@@ -64,7 +65,8 @@ public class ProductController {
     		}
     		
     		product.setQuantity(product.getQuantity() - metadata.get(i).getQuantity());
-    		productList.add(product);
+    		product.setFeatured(metadata.get(i).getFeatured());
+            productList.add(product);
     	}
         
         productService.saveAll(productList, metadata);

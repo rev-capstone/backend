@@ -49,7 +49,8 @@ public class AuthController {
                 registerRequest.getEmail(),
                 registerRequest.getPassword(),
                 registerRequest.getFirstName(),
-                registerRequest.getLastName());
+                registerRequest.getLastName(),
+                false);//can't register admins from the frontend
 
         User userfromDb = authService.register(created);   
 

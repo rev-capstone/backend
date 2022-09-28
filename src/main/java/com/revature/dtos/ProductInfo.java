@@ -18,4 +18,5 @@ public class ProductInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int quantity;
+    private Boolean featured;
 }
