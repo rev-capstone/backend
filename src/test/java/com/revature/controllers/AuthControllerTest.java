@@ -17,7 +17,7 @@ import com.revature.dtos.RegisterRequest;
 import com.revature.models.User;
 import com.revature.services.AuthService;
 
-public class AuthControllerTest {
+class AuthControllerTest {
 
     HttpSession session = Mockito.mock(HttpSession.class);
     AuthService authService = Mockito.mock(AuthService.class);

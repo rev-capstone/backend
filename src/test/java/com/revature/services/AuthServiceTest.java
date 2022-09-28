@@ -9,7 +9,7 @@ import org.mockito.Mockito;
 import com.revature.dtos.LoginRequest;
 import com.revature.models.User;
 
-public class AuthServiceTest {
+class AuthServiceTest {
     UserService userService = Mockito.mock(UserService.class);
     AuthService authService = new AuthService(userService);
 

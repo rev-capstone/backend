@@ -12,7 +12,7 @@ import com.revature.dtos.LoginRequest;
 import com.revature.models.User;
 import com.revature.repositories.UserRepository;
 
-public class UserServiceTest {
+class UserServiceTest {
     UserRepository userRepository = Mockito.mock(UserRepository.class);
     UserService userService = new UserService(userRepository);
 

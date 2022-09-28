@@ -15,7 +15,7 @@ import com.revature.dtos.ProductInfo;
 import com.revature.models.Product;
 import com.revature.repositories.ProductRepository;
 
-public class ProductServiceTest {
+class ProductServiceTest {
     
     ProductRepository productRepository = Mockito.mock(ProductRepository.class);
     ProductService productService = new ProductService(productRepository);

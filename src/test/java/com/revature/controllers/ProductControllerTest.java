@@ -19,7 +19,7 @@ import com.revature.dtos.ProductInfo;
 import com.revature.models.Product;
 import com.revature.services.ProductService;
 
-public class ProductControllerTest {
+class ProductControllerTest {
 
     HttpSession session = Mockito.mock(HttpSession.class);
     ProductService productService = Mockito.mock(ProductService.class);
