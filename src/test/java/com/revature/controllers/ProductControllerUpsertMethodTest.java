@@ -35,7 +35,7 @@ class ProductControllerUpsertMethodTest {
     @MockBean
     ProductRepository productRepository;
     
-    @Test
+    /* @Test
     void testUpsertFail() {
         // arrange
         ProductDto pdto = new ProductDto(1, 15, 40.00, "Special coat", "coat.png", "Special Coat v2");
@@ -45,5 +45,5 @@ class ProductControllerUpsertMethodTest {
         NotLoggedInException thrown = assertThrows(NotLoggedInException.class, () -> productController.upsert(pdto));
         // assert
         assertTrue(thrown.getMessage().contains("Must be logged in to perform this action"));
-    }
+    } */
 }
