@@ -13,13 +13,13 @@ public class ApplicationConfig {
     public ModelMapper modelMapper(){
         return new ModelMapper();
     }
-//http://cappyrevaturebucket.s3-website-us-east-1.amazonaws.com
+
     @Bean
     public WebMvcConfigurer corsConfigurer(){
         return new WebMvcConfigurer() {
             public void addCorsMappings(CorsRegistry registry){
                 registry.addMapping("/**")
-                .allowedOrigins("http://localhost:3000")
+                .allowedOrigins("http://cappyrevaturebucket.s3-website-us-east-1.amazonaws.com")
                 .allowedMethods("*")
                 .allowCredentials(true).exposedHeaders("jwt");
             }
