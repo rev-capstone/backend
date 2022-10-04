@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+import com.revature.config.Jwtutil;
 import com.revature.dtos.LoginRequest;
 import com.revature.dtos.RegisterRequest;
 import com.revature.models.User;
@@ -29,9 +30,9 @@ public class AuthController {
             return ResponseEntity.badRequest().build();
         }
         User user = optional.get();
-        session.setAttribute("user", user);
+        String JWT = Jwtutil.encode(user);
 
-        return ResponseEntity.ok(optional.get());
+        return ResponseEntity.status(200).header("jwt", JWT).body(user);
     }
 
     @PostMapping("/logout")

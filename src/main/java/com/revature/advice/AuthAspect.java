@@ -1,6 +1,7 @@
 package com.revature.advice;
 
 import com.revature.annotations.Authorized;
+import com.revature.config.Jwtutil;
 import com.revature.exceptions.NotLoggedInException;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -19,6 +20,8 @@ public class AuthAspect {
     // the proxy will pass method calls to the real request
     private final HttpServletRequest req;
 
+    
+
     public AuthAspect(HttpServletRequest req) {
         this.req = req;
     }
@@ -26,13 +29,21 @@ public class AuthAspect {
     @Around("@annotation(authorized)")
     public Object authenticate(ProceedingJoinPoint pjp, Authorized authorized) throws Throwable {
 
-        HttpSession session = req.getSession(); // Get the session (or create one)
+        //HttpSession session = req.getSession(); // Get the session (or create one)
+        String JWT = req.getHeader("jwt");
 
-        System.out.println(session.getAttribute("user"));
+        //System.out.println(session.getAttribute("user"));
         // If the user is not logged in
-        if(session.getAttribute("user") == null) {
+        if(JWT.equals("")) {
             throw new NotLoggedInException("Must be logged in to perform this action");
         }
+
+        try{
+            Jwtutil.decode(JWT);
+        }catch(Exception e){
+            throw new NotLoggedInException("Login expired");
+        }
+
 
         return pjp.proceed(pjp.getArgs()); // Call the originally intended method
     }
