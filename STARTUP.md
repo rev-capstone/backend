@@ -23,7 +23,6 @@ Although it’s arbitrary where you store them, it’s better practice to store 
 |[nodeJS >= v16.17.0](https://nodejs.org/en/download/)||
 |[TypeScript >= v4.8.2](https://www.typescriptlang.org/download)||
  [Chrome](https://www.google.com/chrome/)|[Firefox](https://www.mozilla.org/en-US/firefox/new/)|
- [download links:]
 
 
 <br>
