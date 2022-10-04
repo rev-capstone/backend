@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/product")
-@CrossOrigin(origins = {"http://cappyrevaturebucket.s3-website-us-east-1.amazonaws.com/", "http://localhost:3000"}, allowCredentials = "true")
+@CrossOrigin(origins = {"http://cappyrevaturebucket.s3-website-us-east-1.amazonaws.com"}, allowCredentials = "true")
 public class ProductController {
 
     private DtoMapper dtoConv = new DtoMapper();
