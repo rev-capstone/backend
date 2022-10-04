@@ -9,20 +9,18 @@ Although it’s arbitrary where you store them, it’s better practice to store 
     
     - `git clone https://github.com/rev-capstone/backend.git`
     - `git clone https://github.com/rev-capstone/frontend.git`
- <hr>
  <br>
 
 ## Development Setup
-<br>
 
 ### Software Installation Requirements
 *Note: indicated versions reflect what was used to build the project* 
-|:---|---|
-|[JDK >= 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html)||
-|[Maven >=3.8.6](https://maven.apache.org/download.cgi)||
-|[nodeJS >= v16.17.0](https://nodejs.org/en/download/)||
-|[TypeScript >= v4.8.2](https://www.typescriptlang.org/download)||
- [Chrome](https://www.google.com/chrome/)|[Firefox](https://www.mozilla.org/en-US/firefox/new/)|
+
+- [JDK >= 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html)
+- [Maven >=3.8.6](https://maven.apache.org/download.cgi)
+- [nodeJS >= v16.17.0](https://nodejs.org/en/download/)
+- [TypeScript >= v4.8.2](https://www.typescriptlang.org/download)
+- [Chrome](https://www.google.com/chrome/)  |   [Firefox](https://www.mozilla.org/en-US/firefox/new/)
 
 
 <br>
@@ -31,6 +29,7 @@ Although it’s arbitrary where you store them, it’s better practice to store 
 
 From within *frontend* run `npm install` on the command line to install all of the required node packages
 <br>
+
 ### VSCode IDE addons 
 If you’re using VSCode, these addons will vastly improve the coding experience (see README for links)
 
@@ -41,6 +40,7 @@ If you’re using VSCode, these addons will vastly improve the coding experience
 - ES7+ React/Redux/React-Native snippets
 - GitLens (visualize code authorship)
 <br>
+
 ### Support software \[optional\]
 
 To facilitate React development, install the *React Developer Tools* addon for Chrome or Firefox
